@@ -55,16 +55,12 @@ const Continents = () => {
             />
         </div>
       </div>
-      <div className="row">
-        <div className='row'>
           
           <Countries 
             data={data}
             search={search}
           
           />
-          </div>
-      </div>
       </>
     )
   }

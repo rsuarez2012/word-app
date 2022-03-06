@@ -1,12 +1,12 @@
 import React from 'react'
-
+import { GridContainer } from '../styles/lists';
 import CountryItem from './CountryItem';
   const Countries = ({data, search}) => {
   return (
     <>
       <h3>Paises</h3>    
       <br />
-      <div className='grid'>
+      <GridContainer>
           {
             search(data).map( country => (
               <CountryItem 
@@ -17,7 +17,7 @@ import CountryItem from './CountryItem';
               )
             )
           }
-      </div>
+      </GridContainer>
     </>
   )
 }
