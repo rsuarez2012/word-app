@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { useCountryDetail } from '../hooks/useCountryDetail'
 import { Link, useParams } from 'react-router-dom';
 import { ImgDetail } from '../styles/lists';
@@ -17,25 +17,27 @@ const CountryDetailPage = () => {
             <ImgDetail src={data[0]?.flags.svg} alt=""/>
           </div>
           <div className="column">    
-            {/* <p>Nombre en lenguaje:{data[0]?.name.nativeName}</p> <br /> */}
+            {/* Nombre en lenguaje:{data[0]?.name.nativeName} */}
             Nombre:{data[0]?.name.official}   Poblacion{data[0]?.population} <br />
             Region:{data[0]?.region}          Sub Region:{data[0]?.subregion} <br />
             Capital:{data[0]?.capital}     Top level Domine:{data[0]?.tld[0]} <br />
-            Lenguaje:{data[0]?.languages.spa} <br />
-            {/* <p>Currencies:{data[0]?.currencies}</p> <br /> */}
             
             Frontera: 
-              {
+            {
+              (data[0]?.borders) ?                
                 data[0]?.borders.map( border => {
                   return (
                     <>
-                      <Link to={`/countries/${data[0]?.name.common}`}>
-                        <button>{border}</button> 
-                      </Link>
+                    <Link to={`/countries/${data[0]?.name.common}`}>
+                    <button>{border}</button> 
+                    </Link>
                     </>
-                  ) 
-                })
-              }
+                    ) 
+                  })
+              :
+              'No tiene Frontera'
+            }
+                       
           </div>
         </div>
     </div>

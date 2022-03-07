@@ -28,7 +28,7 @@ import { Card, GridContainer, Img } from '../styles/lists';
                       <>
                       
                         <div>
-                        <Link to={`/countries/${country.country}`}>
+                        <Link to={`/countries/${country.country}`} style={{ textDecoration: 'none', color: '#000'}}>
                             <Img src={ country.flag } alt={country} />
                             <h2>{ country.country }</h2>
                             <p>Población: {country.population}</p>
@@ -40,8 +40,8 @@ import { Card, GridContainer, Img } from '../styles/lists';
                     </>
                     ) : (
                       <>
-                        <div style={{ textDecoration: 'none', color: '#FFF'}} >
-                        <Link to={`/countries/${country.country}`}>
+                        <div>
+                        <Link to={`/countries/${country.country}`} style={{ textDecoration: 'none', color: '#FFF'}}>
                             <Img src={ country.flag } alt={country} />
                             <h2>{ country.country }</h2>
                             <p>Población: {country.population}</p>
