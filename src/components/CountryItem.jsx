@@ -11,12 +11,15 @@ import { Link } from "react-router-dom";
       theme === 'light' ? (    
         <>
          
-              
-              <Img src={ flag } alt={country} />
+          <div>
+            <Link to={`/countries/${country}`}>
+              <Img src={ flag } alt={country}/>
               <h2>{ country }</h2>
               <p>Población: {population}</p>
               <p>Región: {region}</p>
               <p>Capital: {capital}</p>
+            </Link>
+          </div>
          
       </>
       ) : (

@@ -19,7 +19,9 @@ export const Card = styled.div`
 export const Img = styled.img`
   max-width: 100%;
 `;
-
+export const ImgDetail = styled.img`
+  max-width: 50%;
+`;
 export const P = styled.p`
   font-size: 0.8rem;
 `;
