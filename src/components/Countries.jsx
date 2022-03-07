@@ -1,11 +1,22 @@
 import React from 'react'
 import { GridContainer } from '../styles/lists';
 import CountryItem from './CountryItem';
-  const Countries = ({data, search}) => {
+  const Countries = ({data, search, theme}) => {
   return (
     <>
-      <h3>Paises</h3>    
-      <br />
+    {
+      theme === 'light' ? (    
+        <>
+        <h3 style={{color: '#000'}} >Paises</h3>    
+        <br />
+        </>
+      ) : (
+        <>
+        <h3 style={{color: '#FFF'}}>Paises</h3>    
+        <br />
+        </>
+      )
+    }
       <GridContainer>
           {
             search(data).map( country => (

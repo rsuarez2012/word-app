@@ -4,7 +4,7 @@ import SearchCountry from './SearchCountry';
 import SearchRegion from './SearchRegion';
 import { useCountries } from '../hooks/useCountries';
 
-const Continents = () => {
+const Continents = ({ themeToggler, theme }) => {
   const {isLoaded, data, error} = useCountries();//(enviar region o pais)
   const [q, setQ] = useState("");
   const [searchParam] = useState(['region', 'name_official']);
@@ -37,8 +37,27 @@ const Continents = () => {
     return (
       <>
       <div className='row'>
-        Where in the word?
-        <span style={{ float: 'right' }}>Dark Mode</span>
+        {theme === 'light' ? (
+          <>
+            <div className='column' style={{color: '#000'}}> Where in the word?</div>
+
+            <div className='column'>
+              <button style={{ float: 'right' }} onClick={() => themeToggler()}>
+                Dark Mode
+              </button>
+            </div>
+          </>
+          ) : (
+            <>
+            <div className='column' style={{color: '#FFF'}}> Where in the word?</div>
+            <div className='column'>
+
+            <button style={{ float: 'right' }} onClick={() => themeToggler()}>
+              Ligth Mode
+            </button>
+            </div>
+            </>
+          )}
       </div>
       <hr />
       <div className="row">
@@ -59,7 +78,7 @@ const Continents = () => {
           <Countries 
             data={data}
             search={search}
-          
+            theme={theme}
           />
       </>
     )
